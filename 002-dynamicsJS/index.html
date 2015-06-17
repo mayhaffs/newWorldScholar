@@ -3,6 +3,9 @@
 	<head>
 		<title>Dynamics</title>
 		<style>
+			body {
+			    background-color: #ddd;
+			}			
 			.loader {
 			  position: absolute;
 			  left: 50%;
@@ -21,36 +24,56 @@
 		</style>
 	</head>
 	<body>
-		<!-- <h1>Dynamics</h1> -->
-		<div class="loader">
-			<div class="dot"></div>
-			<div class="dot"></div>
-			<div class="dot"></div>
-			<div class="dot"></div>
-			<div class="dot"></div>
+
+		<div id="example">
+			<div class="loader">
+				<div class="dot"></div>
+				<div class="dot"></div>
+				<div class="dot"></div>
+				<div class="dot"></div>
+				<div class="dot"></div>
+			</div>
 		</div>
-		<!--  -->
-		<script src="dynamics.js"></script>
+
+		<script src="dynamics.min.js"></script>
 		<script>
 			var dots = document.querySelectorAll('.dot')
-			var colors = ['#007EFF', '#FF3700', '#92FF00', '#007EFF', '#007EFF']
+			var colors = ['#EBFF33', '#A0FB71', '#58F8AB', '#12F6E9', '#2F8F75']
 			// Start the 3 dot animations with different delays
-			function animateDots() {
+			function animateDotsUp() {
 			  for(var i=0; i<dots.length; i++) {
 			    dynamics.animate(dots[i], {
-			      translateY: -150,
+			      translateY: -200,
 			      backgroundColor: colors[i]
 			    }, {
-			      type: dynamics.forceWithGravity,
+			      // type: dynamics.forceWithGravity,
+			      type: dynamics.gravity,
 			      bounciness: 800,
 			      elasticity: 200,
-			      duration: 2000,
+			      duration: 5000,
+			      delay: i * 900
+			    })
+			  }
+			  dynamics.setTimeout(animateDotsDown, 9000)
+			}
+			function animateDotsDown() {
+			  for(var i=0; i<dots.length; i++) {
+			    dynamics.animate(dots[i], {
+			      translateY: 0,
+			      // backgroundColor: colors[i]
+			      backgroundColor: '#000'
+			    }, {
+			      // type: dynamics.forceWithGravity,
+			      type: dynamics.gravity,
+			      bounciness: 800,
+			      elasticity: 200,
+			      duration: 2500,
 			      delay: i * 450
 			    })
 			  }
-			  dynamics.setTimeout(animateDots, 2500)
-			}
-			animateDots()
+			  dynamics.setTimeout(animateDotsUp, 6500)
+			}			
+			animateDotsUp()
 		</script>
 	</body>
 </html>
