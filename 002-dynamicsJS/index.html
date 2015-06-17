@@ -37,15 +37,15 @@
 			}
 			#leftPillar {
 				float: left;
-				width: 50px;
+				width: 40px;
 				height: 5px;
-				background: black;
+				background: white;
 			}
 			#rightPillar {
 				float: right;
-				width: 50px;
+				width: 40px;
 				height: 5px;
-				background: black;
+				background: white;
 			}
 		</style>
 	</head>
@@ -69,9 +69,11 @@
 		<script src="dynamics.js"></script>
 		<script>
 			var dots = document.querySelectorAll('.dot');
+			var pillars = document.querySelectorAll('.pillar');
 			var colors = ['#EBFF33', '#A0FB71', '#58F8AB', '#12F6E9', '#2F8F75'];
 			var dotsTriggered = Array.apply(null, Array(5)).map(Number.prototype.valueOf,0);
 			var dotsActive = Array.apply(null, Array(5)).map(Number.prototype.valueOf,0);
+			var dropCount = 0;
 			//
 			$('#example .dot').off().on('click tap', function (event){
 				var index = $(dots).index(event.target);
@@ -128,7 +130,43 @@
 			      delay: i * 450
 			    })
 			  }
-			  dynamics.setTimeout(animateDotsUp, 6500)
+			  dynamics.setTimeout(function (){
+			  	dropCount++;
+			  	if (dropCount==1){
+			  		growPillar();
+			  	}
+			  	animateDotsUp();
+			  }, 6500)
+			}
+			// function growPillar(dropCount){
+			// 	console.log(dropCount);
+			//   dynamics.animate(pillars, {
+		 //      translateY: 100,
+		 //      scale: 1.5,
+		 //      // scaleY: (10 * dropCount),
+		 //      backgroundColor: '#000'
+			//   }, {
+			//     type: dynamics.linear,
+			//     duration: 500
+			//   });
+			// }
+			function growPillar(){
+				console.log(10 * dropCount);
+			  dynamics.animate(pillars, {
+		      scaleY: (-70),
+		      translateY: (0.5),
+		      backgroundColor: '#FFF'
+			  }, {
+			    type: dynamics.easeOut,
+			    friction: 100,
+			    duration: 2000,
+			    complete: function(){
+			    	if ((10 * dropCount)==70){
+			    		dynamics.stop(pillars);
+			    	}
+			    	// console.log(pillars);
+			    }
+			  });
 			}
 		</script>
 	</body>
