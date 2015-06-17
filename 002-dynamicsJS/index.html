@@ -29,23 +29,25 @@
 			}
 			#stage {
 				position: absolute;
-				width: 400px;
+				width: 800px;
 			  left: 50%;
 			  top: 50%;
-			  margin-left: -200px;
+			  margin-left: -400px;
 			  margin-top: 12px;
 			}
-			#leftPillar {
+			.pillarLeft {
 				float: left;
-				width: 40px;
+				margin: 0 5px;
+				width: 10px;
 				height: 5px;
-				background: white;
+				background: #ddd;
 			}
-			#rightPillar {
+			.pillarRight {
 				float: right;
-				width: 40px;
+				margin: 0 5px;
+				width: 10px;
 				height: 5px;
-				background: white;
+				background: #ddd;			
 			}
 		</style>
 	</head>
@@ -60,13 +62,26 @@
 				<div class="dot"></div>				
 			</div>
 			<div id="stage">
-				<div id="leftPillar" class="pillar"></div>
-				<div id="rightPillar" class="pillar"></div>
+				<div class="pillar1 pillarLeft"></div>
+				<div class="pillar2 pillarLeft"></div>
+				<div class="pillar3 pillarLeft"></div>
+				<div class="pillar4 pillarLeft"></div>
+				<div class="pillar5 pillarLeft"></div>
+				<div class="pillar6 pillarLeft"></div>
+				<div class="pillar7 pillarLeft"></div>
+				<div class="pillar1 pillarRight"></div>
+				<div class="pillar2 pillarRight"></div>
+				<div class="pillar3 pillarRight"></div>
+				<div class="pillar4 pillarRight"></div>
+				<div class="pillar5 pillarRight"></div>
+				<div class="pillar6 pillarRight"></div>
+				<div class="pillar7 pillarRight"></div>
 			</div>			
 		</div>
 
 		<script src="jquery-1.8.2.min.js"></script>
 		<script src="dynamics.js"></script>
+		<script src="https://code.createjs.com/soundjs-0.6.1.min.js"></script>
 		<script>
 			var dots = document.querySelectorAll('.dot');
 			var pillars = document.querySelectorAll('.pillar');
@@ -115,7 +130,11 @@
 			      delay: i * 900
 			    })
 			  }
-			  dynamics.setTimeout(animateDotsDown, 9000)
+			  dynamics.setTimeout(function (){
+			  	if (dropCount < 8){
+			  		animateDotsDown();
+			  	}
+			  }, 9000)
 			}
 			function animateDotsDown() {
 			  for(var i=0; i<dots.length; i++) {
@@ -132,41 +151,36 @@
 			  }
 			  dynamics.setTimeout(function (){
 			  	dropCount++;
-			  	if (dropCount==1){
-			  		growPillar();
+			  	if (dropCount < 8){
+			  		growPillar(dropCount);
 			  	}
-			  	animateDotsUp();
-			  }, 6500)
+			  	dynamics.setTimeout(function (){
+			  		animateDotsUp();			  		
+			  	}, 3000)
+			  }, 3500)
 			}
-			// function growPillar(dropCount){
-			// 	console.log(dropCount);
-			//   dynamics.animate(pillars, {
-		 //      translateY: 100,
-		 //      scale: 1.5,
-		 //      // scaleY: (10 * dropCount),
-		 //      backgroundColor: '#000'
-			//   }, {
-			//     type: dynamics.linear,
-			//     duration: 500
-			//   });
-			// }
-			function growPillar(){
-				console.log(10 * dropCount);
-			  dynamics.animate(pillars, {
-		      scaleY: (-70),
-		      translateY: (0.5),
-		      backgroundColor: '#FFF'
-			  }, {
-			    type: dynamics.easeOut,
-			    friction: 100,
-			    duration: 2000,
-			    complete: function(){
-			    	if ((10 * dropCount)==70){
-			    		dynamics.stop(pillars);
-			    	}
-			    	// console.log(pillars);
-			    }
-			  });
+			function growPillar(count){
+			  	var pill = $('.pillar' + count);
+				  dynamics.animate(pill[0], {
+			      scaleY: (-(20 * count)),
+			      translateY: (0.5),
+			      backgroundColor: '#FFF'
+				  }, {
+				    type: dynamics.easeOut,
+				    friction: 100,
+				    duration: 3000,
+				    // delay: count * 100
+				  });
+				  dynamics.animate(pill[1], {
+			      scaleY: (-(20 * count)),
+			      translateY: (0.5),
+			      backgroundColor: '#FFF'
+				  }, {
+				    type: dynamics.easeOut,
+				    friction: 100,
+				    duration: 3000,
+				    // delay: count * 100
+				  });
 			}
 		</script>
 	</body>
