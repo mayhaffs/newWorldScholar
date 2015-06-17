@@ -35,21 +35,50 @@
 			</div>
 		</div>
 
-		<script src="dynamics.min.js"></script>
+		<script src="jquery-1.8.2.min.js"></script>
+		<script src="dynamics.js"></script>
 		<script>
-			var dots = document.querySelectorAll('.dot')
-			var colors = ['#EBFF33', '#A0FB71', '#58F8AB', '#12F6E9', '#2F8F75']
-			// Start the 3 dot animations with different delays
+			var dots = document.querySelectorAll('.dot');
+			var colors = ['#EBFF33', '#A0FB71', '#58F8AB', '#12F6E9', '#2F8F75'];
+			var dotsTriggered = Array.apply(null, Array(5)).map(Number.prototype.valueOf,0);
+			var dotsActive = Array.apply(null, Array(5)).map(Number.prototype.valueOf,0);
+			//
+			$('#example .dot').off().on('click tap', function (event){
+				var index = $(dots).index(event.target);
+				if (!dotsTriggered[index]){
+					dotsTriggered[index] = true;
+					activateDot(index);
+				}
+			});
+			function checkActive(){
+				if(dotsActive.reduce(function(a, b){return (a === b)?a:false;})){
+					animateDotsUp();
+				}
+			}
+			function activateDot(index){
+		    dynamics.animate(dots[index], {
+		      translateY: -50,
+		    }, {
+		      type: dynamics.forceWithGravity,
+		      bounciness: 800,
+		      elasticity: 200,
+		      duration: 2500,
+		      delay: 200
+		    })
+		    dynamics.setTimeout(function(){
+		    	dotsActive[index] = true;
+		    	checkActive();
+		    }, 3000)
+			}
 			function animateDotsUp() {
 			  for(var i=0; i<dots.length; i++) {
 			    dynamics.animate(dots[i], {
 			      translateY: -200,
 			      backgroundColor: colors[i]
 			    }, {
-			      // type: dynamics.forceWithGravity,
 			      type: dynamics.gravity,
 			      bounciness: 800,
-			      elasticity: 200,
+			      elasticity: 100,
 			      duration: 5000,
 			      delay: i * 900
 			    })
@@ -60,10 +89,8 @@
 			  for(var i=0; i<dots.length; i++) {
 			    dynamics.animate(dots[i], {
 			      translateY: 0,
-			      // backgroundColor: colors[i]
 			      backgroundColor: '#000'
 			    }, {
-			      // type: dynamics.forceWithGravity,
 			      type: dynamics.gravity,
 			      bounciness: 800,
 			      elasticity: 200,
@@ -72,8 +99,7 @@
 			    })
 			  }
 			  dynamics.setTimeout(animateDotsUp, 6500)
-			}			
-			animateDotsUp()
+			}
 		</script>
 	</body>
 </html>
