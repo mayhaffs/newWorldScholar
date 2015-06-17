@@ -5,9 +5,15 @@
 		<style>
 			body {
 			    background-color: #ddd;
-			}			
+			}
+			#example {
+				width: 100%;
+			  margin: 0 auto;				
+				height: 100%;
+			}
 			.loader {
-			  position: absolute;
+				position: absolute;
+				width: 200px;
 			  left: 50%;
 			  top: 50%;
 			  margin-left: -100px;
@@ -21,6 +27,26 @@
 			  border-radius: 12px;
 			  background: black;
 			}
+			#stage {
+				position: absolute;
+				width: 400px;
+			  left: 50%;
+			  top: 50%;
+			  margin-left: -200px;
+			  margin-top: 12px;
+			}
+			#leftPillar {
+				float: left;
+				width: 50px;
+				height: 5px;
+				background: black;
+			}
+			#rightPillar {
+				float: right;
+				width: 50px;
+				height: 5px;
+				background: black;
+			}
 		</style>
 	</head>
 	<body>
@@ -31,8 +57,12 @@
 				<div class="dot"></div>
 				<div class="dot"></div>
 				<div class="dot"></div>
-				<div class="dot"></div>
+				<div class="dot"></div>				
 			</div>
+			<div id="stage">
+				<div id="leftPillar" class="pillar"></div>
+				<div id="rightPillar" class="pillar"></div>
+			</div>			
 		</div>
 
 		<script src="jquery-1.8.2.min.js"></script>
