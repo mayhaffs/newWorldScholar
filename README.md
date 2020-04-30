@@ -19,3 +19,13 @@
 - Browser-Game from Eloquent JS V2 (modified) - .../009/
 - First Custom Website (click world)  - .../ZZZ/Home.html
 
+### a collection of goals
+- Technical
+  - Experiment with software and web development technologies
+  - Experiment with refactoring old webart projects into MVFs
+    - (Minimum Viable Features)
+- Creative
+  - Experiment with various elements of user experiences and gamification
+  - Experiment with philsophical narratives that promote consciouesness
+- Conceptual
+  - Experiment and embrace Chaos Engineering in all pursuits
