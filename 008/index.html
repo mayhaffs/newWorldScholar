@@ -1,0 +1,43 @@
+<html>
+	<head>
+
+	  <!-- Global site tag (gtag.js) - Google Analytics -->
+	  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-31472678-1"></script>
+	  <script>
+	    window.dataLayer = window.dataLayer || [];
+	    function gtag(){dataLayer.push(arguments);}
+	    gtag('js', new Date());
+
+	    gtag('config', 'UA-31472678-1');
+	  </script>
+		
+		<style type="text/css">
+			.eloquentFont {
+				font-family: 'Cinzel', Georgia, serif;
+				font-weight: 700;
+				margin: 1rem 0;
+				letter-spacing: 2px;	
+				text-decoration: none;
+			}
+			.eloquentFont > a {
+				font-size: 130%;
+				color: blue;
+			}
+			.eloquentFont.tip {
+				font-size: 70%;				
+			}			
+		</style>
+		<script src="code/chapter/15_game.js"></script>
+		<script src="code/game_levels.js"></script>
+		<link rel="stylesheet" href="css/game.css">
+	</head>	
+	<body>
+		<p class="eloquentFont">original source code: <a target="_blank" href="http://eloquentjavascript.net">Eloquent Javascript</a></p>
+		<p class="eloquentFont tip">(desktop keyboard required)</p>
+	  <script>
+	    runGame(GAME_LEVELS, DOMDisplay);
+	  </script>
+	</body>
+</html>
+
+

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dynamics</title>
+		<style>
+			body {
+			    background-color: #ddd;
+			}
+			#example {
+				width: 100%;
+			  margin: 0 auto;				
+				height: 100%;
+			}
+			.loader {
+				position: absolute;
+				width: 200px;
+			  left: 50%;
+			  top: 50%;
+			  margin-left: -100px;
+			  margin-top: -12px;
+			}
+			.dot {
+			  float: left;
+			  margin: 0 8px;
+			  width: 24px;
+			  height: 24px;
+			  border-radius: 12px;
+			  background: black;
+			}
+			#stage {
+				position: absolute;
+				width: 800px;
+			  left: 50%;
+			  top: 50%;
+			  margin-left: -400px;
+			  margin-top: 12px;
+			}
+			.pillarLeft {
+				float: left;
+				margin: 0 5px;
+				width: 10px;
+				height: 5px;
+				background: #ddd;
+			}
+			.pillarRight {
+				float: right;
+				margin: 0 5px;
+				width: 10px;
+				height: 5px;
+				background: #ddd;			
+			}
+		</style>
+	</head>
+	<body onload="loadSound();">
+
+		<div id="example">
+			<div class="loader">
+				<div class="dot"></div>
+				<div class="dot"></div>
+				<div class="dot"></div>
+				<div class="dot"></div>
+				<div class="dot"></div>				
+			</div>
+			<div id="stage">
+				<div class="pillar1 pillarLeft"></div>
+				<div class="pillar2 pillarLeft"></div>
+				<div class="pillar3 pillarLeft"></div>
+				<div class="pillar4 pillarLeft"></div>
+				<div class="pillar5 pillarLeft"></div>
+				<div class="pillar6 pillarLeft"></div>
+				<div class="pillar7 pillarLeft"></div>
+				<div class="pillar1 pillarRight"></div>
+				<div class="pillar2 pillarRight"></div>
+				<div class="pillar3 pillarRight"></div>
+				<div class="pillar4 pillarRight"></div>
+				<div class="pillar5 pillarRight"></div>
+				<div class="pillar6 pillarRight"></div>
+				<div class="pillar7 pillarRight"></div>
+			</div>			
+		</div>
+
+		<script src="jquery-1.8.2.min.js"></script>
+		<script src="dynamics.js"></script>
+		<script src="https://code.createjs.com/soundjs-0.6.1.min.js"></script>
+		<!-- Xmuzikc-Xmuzik-8288_hifi.mp3 -->
+		<!-- Xmuzikc-Xmuzik-8235_hifi.mp3 -->
+		<script>
+			var soundID1 = "Activate";
+			var soundID2 = "Motion";
+			function loadSound(){
+				createjs.Sound.registerSound("Xmuzikc-Xmuzik-8288_hifi.mp3", soundID1);
+				createjs.Sound.registerSound("Xmuzikc-Xmuzik-8235_hifi.mp3", soundID2);
+			}
+			function playSound(){
+				createjs.Sound.play(soundID1);
+			}
+			function playMotion(){
+				createjs.Sound.play(soundID2);
+			}
+			var dots = document.querySelectorAll('.dot');
+			var pillars = document.querySelectorAll('.pillar');
+			var colors = ['#EBFF33', '#A0FB71', '#58F8AB', '#12F6E9', '#2F8F75'];
+			var dotsTriggered = Array.apply(null, Array(5)).map(Number.prototype.valueOf,0);
+			var dotsActive = Array.apply(null, Array(5)).map(Number.prototype.valueOf,0);
+			var dropCount = 0;
+			//
+			$('#example .dot').off().on('click tap', function (event){
+				var index = $(dots).index(event.target);
+				if (!dotsTriggered[index]){
+					playSound();
+					dotsTriggered[index] = true;
+					activateDot(index);
+				}
+			});
+			function checkActive(){
+				if(dotsActive.reduce(function(a, b){return (a === b)?a:false;})){
+					animateDotsUp();
+				}
+			}
+			function activateDot(index){
+		    dynamics.animate(dots[index], {
+		      translateY: -50,
+		    }, {
+		      type: dynamics.forceWithGravity,
+		      bounciness: 800,
+		      elasticity: 200,
+		      duration: 2500,
+		      delay: 200
+		    })
+		    dynamics.setTimeout(function(){
+		    	dotsActive[index] = true;
+		    	checkActive();
+		    }, 3000)
+			}
+			function animateDotsUp() {
+				playMotion();
+			  for(var i=0; i<dots.length; i++) {
+			    dynamics.animate(dots[i], {
+			      translateY: -200,
+			      backgroundColor: colors[i]
+			    }, {
+			      type: dynamics.gravity,
+			      bounciness: 800,
+			      elasticity: 100,
+			      duration: 5000,
+			      delay: i * 900
+			    })
+			  }
+			  dynamics.setTimeout(function (){
+			  	if (dropCount < 8){
+			  		animateDotsDown();
+			  	}
+			  }, 9000)
+			}
+			function animateDotsDown() {
+			  for(var i=0; i<dots.length; i++) {
+			    dynamics.animate(dots[i], {
+			      translateY: 0,
+			      backgroundColor: '#000'
+			    }, {
+			      type: dynamics.gravity,
+			      bounciness: 800,
+			      elasticity: 200,
+			      duration: 2500,
+			      delay: i * 450
+			    })
+			  }
+			  dynamics.setTimeout(function (){
+			  	dropCount++;
+			  	if (dropCount < 8){
+			  		growPillar(dropCount);
+			  	}
+			  	dynamics.setTimeout(function (){
+			  		animateDotsUp();			  		
+			  	}, 3000)
+			  }, 3500)
+			}
+			function growPillar(count){
+			  	var pill = $('.pillar' + count);
+				  dynamics.animate(pill[0], {
+			      scaleY: (-(20 * count)),
+			      translateY: (0.5),
+			      backgroundColor: '#FFF'
+				  }, {
+				    type: dynamics.easeOut,
+				    friction: 100,
+				    duration: 3000,
+				    // delay: count * 100
+				  });
+				  dynamics.animate(pill[1], {
+			      scaleY: (-(20 * count)),
+			      translateY: (0.5),
+			      backgroundColor: '#FFF'
+				  }, {
+				    type: dynamics.easeOut,
+				    friction: 100,
+				    duration: 3000,
+				    // delay: count * 100
+				  });
+			}
+		</script>
+	</body>
+</html>

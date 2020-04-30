@@ -1,0 +1,111 @@
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<head>
+
+	  <!-- Global site tag (gtag.js) - Google Analytics -->
+	  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-31472678-1"></script>
+	  <script>
+	    window.dataLayer = window.dataLayer || [];
+	    function gtag(){dataLayer.push(arguments);}
+	    gtag('js', new Date());
+
+	    gtag('config', 'UA-31472678-1');
+	  </script>
+		
+		<title>Troll Defense LLC</title>
+		<style type="text/css">
+			body {
+				background-color: lime;
+				font-family: monaco;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- start page html -->
+
+		<br>
+		<br>
+		<h1>Hello World!</h1>
+		<h4> -- Welcome to Troll Defense LLC. -- "The cutting edge of troll defense systems" -- </h4>
+		<br>
+		<h4>Please enjoy a complimentary demo of the "HD VR Troll Attack Simulator":</h4>
+		<label for="trollAttackLvl" >Troll Attack Level (1 - 10): </label>
+		<input id="trollAttackLvl" field="text" value="1">
+		<button type="submit" onclick="initalizeTrollAttack();">Submit</button>
+		<br>
+		<h5>Please Open Dev Console for Full Effect:<br>
+		Right-Click > Click "Inspect" > Click "Console" Tab</h5>
+		
+		<!-- end page html -->
+
+		<!-- start page javascript -->
+
+		<script type="text/javascript">
+			// inline javascript reference are bad practice, but this is easy so we are using it
+			// the standard is to have an external js file will all your js
+			// but for now we do this
+
+			function initalizeTrollAttack(){
+
+				console.log("...starting simulation...");
+
+				var trollAttackLvl = 0;
+				trollAttackLvl = document.getElementById("trollAttackLvl").value;
+
+				console.log("... probing attack level...");
+				console.log(trollAttackLvl);
+				console.log("...troll attack level of " + trollAttackLvl + " engaged...");
+				console.log("...initiating troll attack...");
+
+				if ((trollAttackLvl > 0) && (trollAttackLvl < 11)){
+
+					console.log("...initiating troll attack...");
+					runTrollAttack(trollAttackLvl);
+
+				}
+			}
+
+			function runTrollAttack(trollAttackLvl){
+
+				var trollText = "--- !!! GREETING LUKE AND WELCOME !!! --- PLEASE SEND CHECK OF $100 TO Troll Defense LLC. ASAP TO PREVENT FUTURE TROLL ATTACKS --- TROLLS ARE HIGHLY DANGEROUS AND YOUR COMPUTER IS HIGHLY INFECTED WITH TROLLS AND In Internet slang, a troll (/troʊl, trɒl/) is a person who sows discord on the Internet by starting quarrels or upsetting people, by posting inflammatory,[1] extraneous, or off-topic messages in an online community (such as a newsgroup, forum, chat room, or blog) with the intent of provoking readers into an emotional response[2] or of otherwise disrupting normal, on-topic discussion,[3] often for the troll's amusement. This sense of both the noun and the verb \"troll\" is associated with Internet discourse, but also has been used more widely. Media attention in recent years has equated trolling with online harassment. For example, the mass media have used \"troll\" to mean \"a person who defaces Internet tribute sites with the aim of causing grief to families\".[4][5] In addition, depictions of trolling have been included in popular fictional works, such as the HBO television program The Newsroom, in which a main character encounters harassing persons online and tries to infiltrate their circles by posting negative sexual comments.";				
+
+				trollAttackLvl = trollAttackLvl * 5;
+
+				for (var i = 0; i <= trollAttackLvl; i++) {
+
+					console.log("HEHE HIYA I'M TROLL #" + i + "!!!");
+
+					console.log("░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄░░░░░░░░░");
+					console.log("░░░░█░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░▀▀▄░░░░░");
+					console.log("░░░█░░░▒▒▒▒▒▒░░░░░░░░▒▒▒░░█░░░░");
+					console.log("░░█░░░░░░▄██▀▄▄░░░░░▄▄▄░░░█░░░░");
+					console.log("░▀▒▄▄▄▒░█▀▀▀▀▄▄█░░░██▄▄█░░░█░░░");
+					console.log("█▒█▒▄░▀▄▄▄▀░░░░░░░░█░░░▒▒▒▒▒█░░");
+					console.log("█▒█░█▀▄▄░░░░░█▀░░░░▀▄░░▄▀▀▀▄▒█░");
+					console.log("░█▀▄░█▄░█▀▄▄░▀░▀▀░▄▄▀░░░░█░░█░░"); 
+					console.log("░░█░░▀▄▀█▄▄░█▀▀▀▄▄▄▄▀▀█▀██░█░░░");
+					console.log("░░░█░░██░░▀█▄▄▄█▄▄█▄████░█░░░░░");
+					console.log("░░░░█░░░▀▀▄░█░░░█░███████░█░░░░");
+					console.log("░░░░░▀▄░░░▀▀▄▄▄█▄█▄█▄█▄▀░░█░░░░");
+					console.log("░░░░░░░▀▄▄░▒▒▒▒░░░░░░░░░░█░░░░░");
+					console.log("░░░░░░░░░░▀▀▄▄░▒▒▒▒▒▒▒▒▒▒░█░░░░");
+					console.log("░░░░░░░░░░░░░░▀▄▄▄▄▄░░░░░█░░░░░");
+
+					// limit alerts to 2
+					if (i <= 1) {
+						alert(trollText);					
+					}
+					
+				
+				}
+
+			}
+
+		</script>
+
+		<!-- end page javascript -->
+
+	</body>
+</html>

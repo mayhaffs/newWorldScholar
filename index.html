@@ -1,0 +1,163 @@
+<html>
+<head>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-31472678-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-31472678-1');
+  </script>
+
+  <style type="text/css">
+    body{
+      background: black;
+    }
+    .text{
+      color: white;
+    }
+    #earth{
+      user-drag: none; 
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;      
+      /* pointer-events: none; */
+    }
+    .link{
+      color: white;
+      text-decoration: none;
+      font-family: Monaco;
+      font-size: 100%;
+    }
+    .portal{
+      float:left;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    #main{
+      text-align: center;
+      padding-top: 100px;
+    }
+
+  </style>
+
+  <style type="text/css">
+    ul.nav {
+        width:100%;
+        margin:0 auto;
+        padding:0;
+        list-style:none;
+        background-color:#62564A;
+        text-align:center;
+        font-family: sans-serif; 
+    }
+    .nav li { 
+        display:inline-block;
+        width:9.5%;
+        margin:0;
+        padding:0;
+    }
+    .nav a {
+        text-align:center;
+        padding:12px 0 13px 0;
+        margin:0;
+        /*border-left: 1px solid #fff;*/
+        /*border-right: 1px solid #fff;*/
+        display:block;
+    }
+    .nav a:hover { 
+        background:#A26A42;
+        border:none;
+    }
+
+    ul.nav li:first-child a{
+        border:none;
+    }
+    ul.nav li:last-child a {
+        border:none;
+    }
+
+  </style>
+
+  <title></title>
+</head>
+<body>
+
+  <ul class="nav">
+<!--       <li><a href="#">Search</a></li><li><a href="#">Legend</a></li><li><a href="#">Info</a></li> -->
+      <li id="001" class="portal text"><a class="link" href="http://www.newworldscholar.com/001">001</a></li>
+      <li id="002" class="portal text"><a class="link" href="http://www.newworldscholar.com/002">002</a></li>
+      <li id="003" class="portal text"><a class="link" href="http://www.newworldscholar.com/003">003</a></li>
+      <li id="004" class="portal text"><a class="link" href="http://www.newworldscholar.com/004">004</a></li>
+      <li id="005" class="portal text"><a class="link" href="http://www.newworldscholar.com/005">005</a></li>
+      <li id="006" class="portal text"><a class="link" href="http://www.newworldscholar.com/006">006</a></li>
+      <li id="007" class="portal text"><a class="link" href="http://www.newworldscholar.com/007">007</a></li>
+      <li id="0077" class="portal text"><a class="link" href="http://www.newworldscholar.com/0077">0077</a></li>
+      <li id="008" class="portal text"><a class="link" href="http://www.newworldscholar.com/008">008</a></li>
+      <li id="009" class="portal text"><a class="link" href="http://www.newworldscholar.com/009">009</a></li>
+  </ul>
+
+<!--   <div id="nav">
+    <div id="001" class="portal text"><a class="link" href="http://www.newworldscholar.com/001">001</a></div>
+    <div id="002" class="portal text"><a class="link" href="http://www.newworldscholar.com/002">002</a></div>
+    <div id="003" class="portal text"><a class="link" href="http://www.newworldscholar.com/003">003</a></div>
+    <div id="004" class="portal text"><a class="link" href="http://www.newworldscholar.com/004">004</a></div> 
+    <div id="005" class="portal text"><a class="link" href="http://www.newworldscholar.com/005">005</a></div>
+    <div id="006" class="portal text"><a class="link" href="http://www.newworldscholar.com/006">006</a></div>
+    <div id="007" class="portal text"><a class="link" href="http://www.newworldscholar.com/007">007</a></div>
+    <div id="0077" class="portal text"><a class="link" href="http://www.newworldscholar.com/0077">0077</a></div>
+    <div id="008" class="portal text"><a class="link" href="http://www.newworldscholar.com/008">008</a></div>
+    <div id="009" class="portal text"><a class="link" href="http://www.newworldscholar.com/009">009</a></div>
+  </div> -->
+  <p id="main">
+
+    <img id="earth" src="img/earth.png" style="position: relative;">
+    <div>
+      <p id="juice" class="text">0</p>
+      <p id="sin" class="text">0</p>
+      <p id="cos" class="text">0</p>
+      <p id="angel" class="text">0</p>
+    </div>
+
+  </p>
+  <script>
+    var cat = document.querySelector("img");
+    var angle = 0, lastTime = null;
+    function animate(time) {
+      if (lastTime != null)
+        angle += (time - lastTime) * 0.0007;
+        var target = document.getElementById("juice");
+        var sint = document.getElementById("sin");
+        var cost = document.getElementById("cos");
+        var angel = document.getElementById("angel");
+          target.innerHTML = lastTime;
+        angel.innerHTML = angle;
+        
+        //target.appendChild(document.createTextNode("X"));
+      lastTime = time;
+      cat.style.top = (Math.sin(angle) * 20) + "px";
+      sint.innerHTML = (Math.sin(angle) * 20);
+      cat.style.left = (Math.cos(angle) * 200) + "px";
+      cost.innerHTML = (Math.cos(angle) * 200);
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    
+    // click earth => trigger changePage to retro NewWorldScholar HomePage
+    document.getElementById("earth").onclick = function(){
+      changePage("ZZZ/Home.html");
+    };
+
+    function changePage(relativePath){
+      alert("Hello World!");
+      location.replace(relativePath);
+    }
+
+  </script>
+</body>
+</html>
