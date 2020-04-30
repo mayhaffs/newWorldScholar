@@ -1,6 +1,6 @@
 <html>
 <head>
-  
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-31472678-1"></script>
   <script>
@@ -19,12 +19,12 @@
       color: white;
     }
     #earth{
-      user-drag: none; 
+      user-drag: none;
       user-select: none;
       -moz-user-select: none;
       -webkit-user-drag: none;
       -webkit-user-select: none;
-      -ms-user-select: none;      
+      -ms-user-select: none;
       /* pointer-events: none; */
     }
     .link{
@@ -53,9 +53,9 @@
         list-style:none;
         background-color:#62564A;
         text-align:center;
-        font-family: sans-serif; 
+        font-family: sans-serif;
     }
-    .nav li { 
+    .nav li {
         display:inline-block;
         width:9.5%;
         margin:0;
@@ -69,7 +69,7 @@
         /*border-right: 1px solid #fff;*/
         display:block;
     }
-    .nav a:hover { 
+    .nav a:hover {
         background:#A26A42;
         border:none;
     }
@@ -105,7 +105,7 @@
     <div id="001" class="portal text"><a class="link" href="http://www.newworldscholar.com/001">001</a></div>
     <div id="002" class="portal text"><a class="link" href="http://www.newworldscholar.com/002">002</a></div>
     <div id="003" class="portal text"><a class="link" href="http://www.newworldscholar.com/003">003</a></div>
-    <div id="004" class="portal text"><a class="link" href="http://www.newworldscholar.com/004">004</a></div> 
+    <div id="004" class="portal text"><a class="link" href="http://www.newworldscholar.com/004">004</a></div>
     <div id="005" class="portal text"><a class="link" href="http://www.newworldscholar.com/005">005</a></div>
     <div id="006" class="portal text"><a class="link" href="http://www.newworldscholar.com/006">006</a></div>
     <div id="007" class="portal text"><a class="link" href="http://www.newworldscholar.com/007">007</a></div>
@@ -136,7 +136,7 @@
         var angel = document.getElementById("angel");
           target.innerHTML = lastTime;
         angel.innerHTML = angle;
-        
+
         //target.appendChild(document.createTextNode("X"));
       lastTime = time;
       cat.style.top = (Math.sin(angle) * 20) + "px";
@@ -147,7 +147,7 @@
     }
     requestAnimationFrame(animate);
 
-    
+
     // click earth => trigger changePage to retro NewWorldScholar HomePage
     document.getElementById("earth").onclick = function(){
       changePage("ZZZ/Home.html");
