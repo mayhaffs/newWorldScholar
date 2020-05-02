@@ -36,3 +36,16 @@ A collection of web art and ideas. -- http://www.newworldscholar.com/
   - Experiment with philsophical narratives that promote consciouesness
 - Conceptual
   - Experiment and embrace Chaos Engineering in all pursuits
+
+*****
+*****
+*****
+
+### Dev Notes
+
+#### Installing React on an existing site
+
+- Add react-root, React scripts with offline fallbacks, app.js.
+- Open "React Developer Tools" extension and allow access to file urls
+
+

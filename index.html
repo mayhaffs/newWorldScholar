@@ -1,24 +1,27 @@
 <html>
+
 <head>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-31472678-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'UA-31472678-1');
   </script>
 
   <style type="text/css">
-    body{
+    body {
       background: black;
     }
-    .text{
+
+    .text {
       color: white;
     }
-    #earth{
+
+    #earth {
       user-drag: none;
       user-select: none;
       -moz-user-select: none;
@@ -27,81 +30,92 @@
       -ms-user-select: none;
       /* pointer-events: none; */
     }
-    .link{
+
+    .link {
       color: white;
       text-decoration: none;
       font-family: Monaco;
       font-size: 100%;
     }
-    .portal{
-      float:left;
+
+    .portal {
+      float: left;
       padding-left: 10px;
       padding-right: 10px;
     }
-    #main{
+
+    #main {
       text-align: center;
       padding-top: 100px;
     }
-
   </style>
 
   <style type="text/css">
     ul.nav {
-        width:100%;
-        margin:0 auto;
-        padding:0;
-        list-style:none;
-        background-color:#62564A;
-        text-align:center;
-        font-family: sans-serif;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
+      background-color: #62564A;
+      text-align: center;
+      font-family: sans-serif;
     }
+
     .nav li {
-        display:inline-block;
-        width:9.5%;
-        margin:0;
-        padding:0;
+      display: inline-block;
+      width: 9.5%;
+      margin: 0;
+      padding: 0;
     }
+
     .nav a {
-        text-align:center;
-        padding:12px 0 13px 0;
-        margin:0;
-        /*border-left: 1px solid #fff;*/
-        /*border-right: 1px solid #fff;*/
-        display:block;
+      text-align: center;
+      padding: 12px 0 13px 0;
+      margin: 0;
+      /*border-left: 1px solid #fff;*/
+      /*border-right: 1px solid #fff;*/
+      display: block;
     }
+
     .nav a:hover {
-        background:#A26A42;
-        border:none;
+      background: #A26A42;
+      border: none;
     }
 
-    ul.nav li:first-child a{
-        border:none;
+    ul.nav li:first-child a {
+      border: none;
     }
+
     ul.nav li:last-child a {
-        border:none;
+      border: none;
     }
-
   </style>
+
+  <link rel="stylesheet" href="app.css">
 
   <title></title>
 </head>
+
 <body>
 
+  <!-- React root -->
+  <div id="react-root"></div>
+
   <ul class="nav">
-<!--       <li><a href="#">Search</a></li><li><a href="#">Legend</a></li><li><a href="#">Info</a></li> -->
-      <li id="001" class="portal text"><a class="link" href="http://www.newworldscholar.com/001">001</a></li>
-      <li id="002" class="portal text"><a class="link" href="http://www.newworldscholar.com/002">002</a></li>
-      <li id="003" class="portal text"><a class="link" href="http://www.newworldscholar.com/003">003</a></li>
-      <li id="004" class="portal text"><a class="link" href="http://www.newworldscholar.com/004">004</a></li>
-      <li id="005" class="portal text"><a class="link" href="http://www.newworldscholar.com/005">005</a></li>
-      <li id="006" class="portal text"><a class="link" href="http://www.newworldscholar.com/006">006</a></li>
-      <li id="007" class="portal text"><a class="link" href="http://www.newworldscholar.com/007">007</a></li>
-      <li id="0077" class="portal text"><a class="link" href="http://www.newworldscholar.com/0077">0077</a></li>
-      <li id="008" class="portal text"><a class="link" href="http://www.newworldscholar.com/008">008</a></li>
-      <li id="009" class="portal text"><a class="link" href="http://www.newworldscholar.com/009">009</a></li>
+    <!--       <li><a href="#">Search</a></li><li><a href="#">Legend</a></li><li><a href="#">Info</a></li> -->
+    <li id="001" class="portal text"><a class="link" href="http://www.newworldscholar.com/001">001</a></li>
+    <li id="002" class="portal text"><a class="link" href="http://www.newworldscholar.com/002">002</a></li>
+    <li id="003" class="portal text"><a class="link" href="http://www.newworldscholar.com/003">003</a></li>
+    <li id="004" class="portal text"><a class="link" href="http://www.newworldscholar.com/004">004</a></li>
+    <li id="005" class="portal text"><a class="link" href="http://www.newworldscholar.com/005">005</a></li>
+    <li id="006" class="portal text"><a class="link" href="http://www.newworldscholar.com/006">006</a></li>
+    <li id="007" class="portal text"><a class="link" href="http://www.newworldscholar.com/007">007</a></li>
+    <li id="0077" class="portal text"><a class="link" href="http://www.newworldscholar.com/0077">0077</a></li>
+    <li id="008" class="portal text"><a class="link" href="http://www.newworldscholar.com/008">008</a></li>
+    <li id="009" class="portal text"><a class="link" href="http://www.newworldscholar.com/009">009</a></li>
   </ul>
 
-<!--   <div id="nav">
+  <!--   <div id="nav">
     <div id="001" class="portal text"><a class="link" href="http://www.newworldscholar.com/001">001</a></div>
     <div id="002" class="portal text"><a class="link" href="http://www.newworldscholar.com/002">002</a></div>
     <div id="003" class="portal text"><a class="link" href="http://www.newworldscholar.com/003">003</a></div>
@@ -130,14 +144,14 @@
     function animate(time) {
       if (lastTime != null)
         angle += (time - lastTime) * 0.0007;
-        var target = document.getElementById("juice");
-        var sint = document.getElementById("sin");
-        var cost = document.getElementById("cos");
-        var angel = document.getElementById("angel");
-          target.innerHTML = lastTime;
-        angel.innerHTML = angle;
+      var target = document.getElementById("juice");
+      var sint = document.getElementById("sin");
+      var cost = document.getElementById("cos");
+      var angel = document.getElementById("angel");
+      target.innerHTML = lastTime;
+      angel.innerHTML = angle;
 
-        //target.appendChild(document.createTextNode("X"));
+      //target.appendChild(document.createTextNode("X"));
       lastTime = time;
       cat.style.top = (Math.sin(angle) * 20) + "px";
       sint.innerHTML = (Math.sin(angle) * 20);
@@ -149,15 +163,23 @@
 
 
     // click earth => trigger changePage to retro NewWorldScholar HomePage
-    document.getElementById("earth").onclick = function(){
+    document.getElementById("earth").onclick = function () {
       changePage("ZZZ/Home.html");
     };
 
-    function changePage(relativePath){
+    function changePage(relativePath) {
       alert("Hello World!");
       location.replace(relativePath);
     }
 
   </script>
+
+  <!-- React scripts with offline fallbacks-->
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script>window.React || document.write('<script src="../../../node_modules/react/umd/react.development.js"><\/script>')</script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script>window.ReactDOM || document.write('<script src="../../../node_modules/react-dom/umd/react-dom.development.js"><\/script>')</script>
+  <script src="app.js"></script>
 </body>
+
 </html>
