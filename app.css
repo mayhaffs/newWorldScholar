@@ -1,4 +1,25 @@
 .nav-bar {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+.nav-image {
+  width: 50px;
+  height: 50px;
+  margin-left: 2px;
+}
+.nav-headline {
+  color: yellow;
+  /* font-family: fantasy; */
+  font-family: fantasy;
+  font-size: 24px;
+  /* max-width: 80%; */
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.nav-buttons {
   color: white;
   font-family: fantasy;
+  /* font-size: 24px; */
+  /* max-width: 80%; */
 }

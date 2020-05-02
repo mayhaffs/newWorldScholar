@@ -2,32 +2,41 @@
   "use strict";
 
   function NavHeadline(props) {
-    return React.createElement(
-      "div",
-      { className: "nav-bar" },
-      "- Navigation bar will go here -"
+    // return <div className="nav-headline">- New World Scholar -</div>;
+    return <div className="nav-headline">New World Scholar</div>;
+  }
+
+  function NavButtons(props) {
+    return (
+      <div className="nav-buttons">- Navigation buttons will go here -</div>
     );
   }
 
   function NavThumbnail(props) {
-    return React.createElement("img", {
-      src: "img/earth.png",
-      alt: "Navigation Thumbnail Image",
-      className: "nav-image",
-    });
-  }
-
-  function NavBar(props) {
-    return React.createElement(
-      "div",
-      { className: "nav-bar" },
-      React.createElement(NavThumbnail),
-      React.createElement(NavHeadline)
+    return (
+      <img
+        className="nav-image"
+        src="img/earth.png"
+        alt="Navigation Thumbnail Image"
+      />
     );
   }
 
-  ReactDOM.render(
-    React.createElement(NavBar),
-    document.getElementById("react-root")
-  );
+  function NavBar(props) {
+    return (
+      <div className="nav-bar">
+        <div>
+          <NavThumbnail />
+        </div>
+        <div>
+          <NavHeadline />
+        </div>
+        <div>
+          <NavButtons />
+        </div>
+      </div>
+    );
+  }
+
+  ReactDOM.render(<NavBar />, document.getElementById("react-root"));
 })();
