@@ -24,14 +24,14 @@
 
       var stage = new createjs.Stage("demoCanvas");
       var circle = new createjs.Shape();
-      circle.graphics.beginFill("Crimson").drawCircle(0, 0, 50);
+      circle.graphics.beginFill("Crimson").drawCircle(0, 0, 30);
       circle.x = 100;
       circle.y = 100;
       stage.addChild(circle);
       // stage.update();
       createjs.Tween.get(circle, { loop: true })
-        .to({ x: 500 }, 3000, createjs.Ease.getPowInOut(4))
-        .to({ y: 500 }, 3000, createjs.Ease.getPowInOut(4))
+        .to({ x: 350 }, 3000, createjs.Ease.getPowInOut(4))
+        .to({ y: 350 }, 3000, createjs.Ease.getPowInOut(4))
         .to({ x: 100 }, 3000, createjs.Ease.getPowInOut(4))
         .to({ y: 100 }, 3000, createjs.Ease.getPowInOut(4))
       // .to({alpha: 0, y: 75}, 500, createjs.Ease.getPowInOut(2))
@@ -44,14 +44,14 @@
       createjs.Ticker.setFPS(60);
       createjs.Ticker.addEventListener("tick", stage);
       var red = new createjs.Shape();
-      red.graphics.beginFill("Orange").drawCircle(0, 0, 50);
+      red.graphics.beginFill("Orange").drawCircle(0, 0, 40);
       red.x = 100;
       red.y = 100;
       stage.addChild(red);
       // stage.update();
       createjs.Tween.get(red, { loop: true })
-        .to({ x: 400 }, 4000, createjs.Ease.getPowInOut(4))
-        .to({ y: 400 }, 4000, createjs.Ease.getPowInOut(4))
+        .to({ x: 350 }, 4000, createjs.Ease.getPowInOut(4))
+        .to({ y: 350 }, 4000, createjs.Ease.getPowInOut(4))
         .to({ x: 100 }, 4000, createjs.Ease.getPowInOut(4))
         .to({ y: 100 }, 4000, createjs.Ease.getPowInOut(4))
       // .to({alpha: 0, y: 75}, 500, createjs.Ease.getPowInOut(2))
@@ -61,43 +61,43 @@
       createjs.Ticker.setFPS(60);
       createjs.Ticker.addEventListener("tick", stage);
 
-      var red = new createjs.Shape();
-      red.graphics.beginFill("Blue").drawCircle(0, 0, 50);
-      red.x = 100;
-      red.y = 100;
-      stage.addChild(red);
+      var blue = new createjs.Shape();
+      blue.graphics.beginFill("Blue").drawCircle(0, 0, 50);
+      blue.x = 100;
+      blue.y = 100;
+      stage.addChild(blue);
       // stage.update();
-      createjs.Tween.get(red, { loop: true })
-        .to({ x: 300 }, 5000, createjs.Ease.getPowInOut(4))
-        .to({ y: 300 }, 5000, createjs.Ease.getPowInOut(4))
+      createjs.Tween.get(blue, { loop: true })
+        .to({ x: 350 }, 5000, createjs.Ease.getPowInOut(4))
+        .to({ y: 350 }, 5000, createjs.Ease.getPowInOut(4))
         .to({ x: 100 }, 5000, createjs.Ease.getPowInOut(4))
         .to({ y: 100 }, 5000, createjs.Ease.getPowInOut(4))
       createjs.Ticker.setFPS(60);
       createjs.Ticker.addEventListener("tick", stage);
 
 
-      var red = new createjs.Shape();
-      red.graphics.beginFill("Green").drawCircle(0, 0, 50);
-      red.x = 100;
-      red.y = 100;
-      stage.addChild(red);
-      createjs.Tween.get(red, { loop: true })
-        .to({ x: 600 }, 2000, createjs.Ease.getPowInOut(4))
-        .to({ y: 600 }, 2000, createjs.Ease.getPowInOut(4))
+      var green = new createjs.Shape();
+      green.graphics.beginFill("Green").drawCircle(0, 0, 20);
+      green.x = 100;
+      green.y = 100;
+      stage.addChild(green);
+      createjs.Tween.get(green, { loop: true })
+        .to({ x: 350 }, 2000, createjs.Ease.getPowInOut(4))
+        .to({ y: 350 }, 2000, createjs.Ease.getPowInOut(4))
         .to({ x: 100 }, 2000, createjs.Ease.getPowInOut(4))
         .to({ y: 100 }, 2000, createjs.Ease.getPowInOut(4))
       createjs.Ticker.setFPS(60);
       createjs.Ticker.addEventListener("tick", stage);
 
-      var red = new createjs.Shape();
-      red.graphics.beginFill("Yellow").drawCircle(0, 0, 50);
-      red.x = 100;
-      red.y = 100;
-      stage.addChild(red);
+      var yellow = new createjs.Shape();
+      yellow.graphics.beginFill("Yellow").drawCircle(0, 0, 10);
+      yellow.x = 100;
+      yellow.y = 100;
+      stage.addChild(yellow);
       // stage.update();
-      createjs.Tween.get(red, { loop: true })
-        .to({ x: 700 }, 1000, createjs.Ease.getPowInOut(4))
-        .to({ y: 700 }, 1000, createjs.Ease.getPowInOut(4))
+      createjs.Tween.get(yellow, { loop: true })
+        .to({ x: 350 }, 1000, createjs.Ease.getPowInOut(4))
+        .to({ y: 350 }, 1000, createjs.Ease.getPowInOut(4))
         .to({ x: 100 }, 1000, createjs.Ease.getPowInOut(4))
         .to({ y: 100 }, 1000, createjs.Ease.getPowInOut(4))
       createjs.Ticker.setFPS(60);
@@ -287,7 +287,9 @@
       font-family: "Lucida Console", "Monaco", "monospace";
       font-size: 6;
       white-space: nowrap;
-      margin: 10px;
+      /* padding: 10px 10px 10px 10px; */
+      width: 600px;
+      /* margin: 10px; */
     }
 
     p {
@@ -622,7 +624,7 @@
 
 <body onload="init(); ">
   <hr>
-  <p>**keypress click tap touch** to say hello</p>
+  <p>*** keypress click tap touch to say hello ***</p>
   <hr>
   <div id="fadeIn0" style="color: #000"></div>
   <!--  -->
