@@ -164,14 +164,12 @@
 
     // click earth => trigger changePage to retro NewWorldScholar HomePage
     document.getElementById("earth").onclick = function () {
-      // changePage("ZZZ/Home.html");
-      window.location.pathname = 'ZZZ/Home.html';
+      const retroURL = () => {
+        const pathname = window.location.pathname.replace("/index.html", "") + "/ZZZ/Home.html";
+        return pathname;
+      }
+      window.location.pathname = retroURL();
     };
-
-    function changePage(relativePath) {
-      alert("Hello World!");
-      location.replace(relativePath);
-    }
 
   </script>
 
