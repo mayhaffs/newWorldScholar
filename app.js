@@ -6,10 +6,31 @@
     return <div className="nav-headline">New World Scholar</div>;
   }
 
-  function NavButtons(props) {
+  function NavTagline(props) {
     return (
-      <div className="nav-buttons">- Navigation buttons will go here -</div>
+      <div className="nav-tagline">- a collection of web art and ideas -</div>
     );
+  }
+
+  function NavButtons(props) {
+    const pageData = [1, 2, 3, 4, 5, 6, 7, 77, 8, 9];
+    const addZeros = (x) => "00" + x;
+    const baseUrl = () => {
+      const pathname = window.location.href.replace("index.html", "");
+      return pathname;
+    };
+    const linkify = (dir) => {
+      return (
+        <li key={dir} className="portal text">
+          <a className="link" href={baseUrl() + `${dir}`}>
+            {dir}
+          </a>
+        </li>
+      );
+    };
+    const dirData = pageData.map(addZeros);
+    const listedLinks = dirData.map(linkify);
+    return <ul className="nav-buttons">{listedLinks}</ul>;
   }
 
   function NavThumbnail(props) {
@@ -24,17 +45,14 @@
 
   function NavBar(props) {
     return (
-      <div className="nav-bar">
-        <div>
+      <React.Fragment>
+        <div className="nav-bar">
           <NavThumbnail />
-        </div>
-        <div>
           <NavHeadline />
+          <NavTagline />
         </div>
-        <div>
-          <NavButtons />
-        </div>
-      </div>
+        <NavButtons />
+      </React.Fragment>
     );
   }
 
