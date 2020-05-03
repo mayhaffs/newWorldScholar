@@ -33,8 +33,9 @@
     }
 
     #main {
+      display: flexbox;
       text-align: center;
-      padding-top: 100px;
+      padding-top: 200px;
     }
   </style>
 
@@ -64,7 +65,7 @@
     var angle = 4, lastTime = null;
     function animate(time) {
       if (lastTime != null)
-        angle += (time - lastTime) * 0.000014;
+        angle += (time - lastTime) * 0.000042;
       var target = document.getElementById("juice");
       var sint = document.getElementById("sin");
       var cost = document.getElementById("cos");
@@ -74,9 +75,9 @@
 
       //target.appendChild(document.createTextNode("X"));
       lastTime = time;
-      cat.style.top = (Math.sin(angle) * 20) + "px";
+      cat.style.top = (Math.sin(angle) * 50) + "px";
       sint.innerHTML = (Math.sin(angle) * 20);
-      cat.style.left = (Math.cos(angle) * 200) + "px";
+      cat.style.left = (Math.cos(angle) * 400) + "px";
       cost.innerHTML = (Math.cos(angle) * 200);
       requestAnimationFrame(animate);
     }
