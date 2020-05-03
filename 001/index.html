@@ -205,17 +205,12 @@
         var listring = lineindex.toString();
         var dest = $('#fadeIn' + listring);
         // console.log(q);
-
+        var rand = Math.floor(Math.random() * 1000);
         var c = 0;
         if (q != undefined) {
           var i = setInterval(function () {
-            q[c].appendTo(dest).hide().fadeIn(100);
-            c += 1;
-            if (c >= q.length) clearInterval(i);
-          }, 30);
-        } else {
-          var i = setInterval(function () {
-            q[c].appendTo(dest).hide().fadeIn(100);
+            // q[c].appendTo(dest).hide().fadeIn(300);
+            q[c].appendTo(dest).hide().fadeIn(rand);
             c += 1;
             if (c >= q.length) clearInterval(i);
           }, 30);
@@ -247,8 +242,20 @@
           // 	hextoss += wordArray[i];
           //  };
           lvl--;
+
         }
-        gogo();
+
+        function randRun() {
+          var rand = Math.floor(Math.random() * 7);
+
+          (function repeat(number) {
+            gogo(number);
+            if (number > 1) repeat(number - 1);
+          })(rand)
+        }
+
+        setInterval(randRun, 200)
+
       });
 
 
@@ -278,8 +285,9 @@
   <style type="text/css">
     body {
       font-family: "Lucida Console", "Monaco", "monospace";
-      font-size: 10;
+      font-size: 6;
       white-space: nowrap;
+      margin: 10px;
     }
 
     p {
