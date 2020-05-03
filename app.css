@@ -1,3 +1,15 @@
+.link {
+  color: white;
+  text-decoration: none;
+  font-family: Monaco;
+  font-size: 100%;
+}
+.portal {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .nav-bar {
   display: flex;
   align-items: center;
