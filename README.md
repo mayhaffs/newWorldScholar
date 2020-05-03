@@ -1,16 +1,18 @@
 # newWorldScholar
 
-A collection of web art and ideas. -- http://www.newworldscholar.com/
+A collection of web art and ideas. -- [http://www.newworldscholar.com/](http://www.newworldscholar.com/)
 
 *****
 
-### a collection of new things
+## a collection of new things
+
 - Mobile Friendly Short Stories:
   - [The Egg by Andy Weir](http://www.newworldscholar.com/003/)
 
 *****
 
-### a collection of old things
+## a collection of old things
+
 - Index .../index.html
 - ASCII Art Animation - .../001/
 - Relaxing Song Animation - .../002/
@@ -26,7 +28,8 @@ A collection of web art and ideas. -- http://www.newworldscholar.com/
 
 *****
 
-### a collection of goals
+## a collection of goals
+
 - Technical
   - Experiment with software and web development technologies
   - Experiment with refactoring old webart projects into MVFs
@@ -41,11 +44,9 @@ A collection of web art and ideas. -- http://www.newworldscholar.com/
 *****
 *****
 
-### Dev Notes
+## Dev Notes
 
-#### Installing React on an existing site
+### Installing React on an existing site
 
 - Add react-root, React scripts with offline fallbacks, app.js.
 - Open "React Developer Tools" extension and allow access to file urls
-
-
