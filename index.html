@@ -29,6 +29,7 @@
       -webkit-user-select: none;
       -ms-user-select: none;
       /* pointer-events: none; */
+      opacity: 40%;
     }
 
     .link {
@@ -102,7 +103,7 @@
     var angle = 4, lastTime = null;
     function animate(time) {
       if (lastTime != null)
-        angle += (time - lastTime) * 0.000314;
+        angle += (time - lastTime) * 0.000014;
       var target = document.getElementById("juice");
       var sint = document.getElementById("sin");
       var cost = document.getElementById("cos");
